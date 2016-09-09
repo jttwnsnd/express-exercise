@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Student list
+  ul
+    for student, i in studentList
+      if(i+1 == queryString)
+        li.bolder= student
+      else
+        li= student
+  a(href="/")
+    p Return Home
+  a(href=path)
+    p See Another Sorted List
+  
