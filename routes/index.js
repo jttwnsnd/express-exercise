@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
-// var mongodb = require('mongodb');
-// var mongoClient = mongodb.MongoClient;
+var mongodb = require('mongodb');
+var mongoClient = mongodb.MongoClient;
 var mongoUrl = 'mongodb://localhost:27017/students';
 var db; //global so all of our routes have access to the db connection
-var mongoose = require('mongoose');
-var Students = require('../models/students');
-mongoose.connect(mongoUrl);
+// var mongoose = require('mongoose');
+// var Students = require('../models/students');
+// mongoose.connect(mongoUrl);
 
-// mongoClient.connect(mongoUrl, (error, database) => {
-//   error ? console.log(error) : db=database, console.log('Connected to Mongo Successfully');
-// })
+mongoClient.connect(mongoUrl, (error, database) => {
+  error ? console.log(error) : db=database, console.log('Connected to Mongo Successfully');
+})
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
